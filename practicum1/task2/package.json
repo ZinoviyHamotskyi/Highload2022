@@ -1,0 +1,7 @@
+{
+    "main": "index.html",
+    "scripts":{
+        "dev":"lite-server -c bs-config.json",
+        "test":"lite-server"},
+    "devDependencies":{"connect-history-api-fallback":"^2.0.0","lite-server":"^2.6.1"}
+}

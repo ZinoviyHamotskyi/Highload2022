@@ -1,0 +1,9 @@
+services:
+  lite-server: 
+    image: highload2022:p1_t2
+    build: .
+    ports:
+      - "8081:3001"
+    
+    
+    

@@ -1,0 +1,3 @@
+FROM nginx:latest
+ENV NGINX_HOST=0.0.0.0
+ENV NGINX_PORT=80

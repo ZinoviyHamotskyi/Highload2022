@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+    json_server:
+        build: ../task3
+        expose: 
+        - 3000
+        scale: 3
+
+    lite_server:
+        build: ../task2
+        expose: 
+        - 3001
+        scale: 3
+        
+    nginx:
+        build: .
+        volumes:
+        - ./templates:/etc/nginx/templates
+        ports:
+        - "8080:80"
+        links: 
+        - json_server
+        - lite_server
+       
+
+
+       

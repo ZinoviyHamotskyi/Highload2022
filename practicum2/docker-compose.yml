@@ -1,0 +1,51 @@
+version: '3'
+services:
+
+## Router
+  router:
+    image: mongo:4.0
+    command: mongos --port 27017 --configdb rs-config-server/configsvr-1:27017,configsvr-2:27017,configsvr-3:27017 --bind_ip_all
+    volumes:
+      - ./scripts:/scripts
+      - ./data:/data
+    expose:
+      - 27017
+    deploy:
+      replicas: 3
+
+## Config Servers
+  configsvr:
+    image: mongo:4.0
+    command: mongod --port 27017 --configsvr --replSet rs-config-server
+    volumes:
+      - ./scripts:/scripts
+    expose:
+      - 27017
+    deploy:
+      replicas: 2
+  
+
+## Shards
+  ## Shards 01
+   
+  shard_main:
+    image: mongo:4.0
+    command: mongod --port 27017 --shardsvr --replSet shard_main
+    volumes:
+      - ./scripts:/scripts
+    expose:
+      - 27017
+    deploy:
+      replicas: 4
+  
+
+  ## Shards 02
+  shard_replica:
+    image: mongo:4.0
+    command: mongod --port 27017 --shardsvr --replSet shard_replica
+    volumes:
+      - ./scripts:/scripts
+    expose:
+      - 27017
+    deploy:
+      replicas: 2

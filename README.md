@@ -13,3 +13,8 @@
 ### task4 (do query(get top 100 drivers by rating(average)) for variant 1): 
 
 ![image](https://user-images.githubusercontent.com/70973267/212566623-ff539138-9055-4761-bab3-e202e774d2e3.png)
+
+
+## Hadoop lab (practicum4)
+
+there is a report with all steps 

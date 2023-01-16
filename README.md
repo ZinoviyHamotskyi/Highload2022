@@ -18,3 +18,16 @@
 ## Hadoop lab (practicum4)
 
 there is a report with all steps 
+
+## Spark lab (practicum5)
+
+Go to /practicum5
+(Spark is already installed). Download dataset "London postcodes.csv" to /data. Run next commands:
+
+pip install -r requirements.txt
+
+python faker.py "data/London postcodes.csv" "data/rides.csv" --num_rows=10_000_000
+
+python map_reduce.py
+
+
